@@ -1,0 +1,8 @@
+pandas
+numpy
+matplotlib
+seaborn
+tatsmodels
+scikit-learn
+requests
+tensorflow
