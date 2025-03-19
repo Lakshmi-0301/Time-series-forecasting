@@ -2,7 +2,7 @@ pandas
 numpy
 matplotlib
 seaborn
-tatsmodels
+statsmodels
 scikit-learn
 requests
 tensorflow
