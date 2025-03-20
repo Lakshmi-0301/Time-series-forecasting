@@ -8,8 +8,8 @@ import pandas as pd
 from sklearn.metrics import mean_absolute_error, mean_squared_error
 
 
-API_KEY = "TNU3H1OWGJZ2RO3P"   # Replace with your actual API key
-STOCK_SYMBOL = "AAPL"  # Example: Apple Stock
+API_KEY = "TNU3H1OWGJZ2RO3P"   
+STOCK_SYMBOL = "AAPL"  
 URL = f"https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol={STOCK_SYMBOL}&apikey={API_KEY}&outputsize=compact"
 
 response = requests.get(URL)
@@ -18,7 +18,6 @@ df = pd.read_csv("stockdata.csv", index_col=0, parse_dates=True)
 df = df.sort_index()
 
 # Prepare Data for LSTM
-# Scale data for better LSTM performance
 scaler = MinMaxScaler()
 scaled_data = scaler.fit_transform(df['Close'].values.reshape(-1, 1))
 
@@ -47,23 +46,6 @@ model.compile(optimizer='adam', loss='mean_squared_error')
 # Train the model
 history = model.fit(X, y, epochs=20, batch_size=32)
 
-# Define LSTM model
-model = Sequential()
-model.add(LSTM(units=64, return_sequences=True, input_shape=(X.shape[1], 1)))
-model.add(Dropout(0.2))
-model.add(LSTM(units=64, return_sequences=False))
-model.add(Dropout(0.2))
-model.add(Dense(units=32))
-model.add(Dense(units=1))
-
-# Compile the model
-model.compile(optimizer='adam', loss='mean_squared_error')
-
-# Train the model
-history = model.fit(X, y, epochs=20, batch_size=32)
-
-#Forecast Using LSTM
-# Prepare input for forecasting
 last_sequence = scaled_data[-sequence_length:]
 last_sequence = last_sequence.reshape((1, sequence_length, 1))
 
