@@ -8,8 +8,8 @@ import pandas as pd
 import requests
 
 
-API_KEY = "TNU3H1OWGJZ2RO3P"  # Replace with your actual API key
-STOCK_SYMBOL = "AAPL"  # Example: Apple Stock
+API_KEY = "YOUR_API_KEY"  # Replace with your actual API key
+STOCK_SYMBOL = "AAPL"  
 URL = f"https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol={STOCK_SYMBOL}&apikey={API_KEY}&outputsize=compact"
 
 response = requests.get(URL)
