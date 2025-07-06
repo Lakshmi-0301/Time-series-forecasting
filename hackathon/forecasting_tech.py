@@ -8,7 +8,7 @@ import pandas as pd
 from sklearn.metrics import mean_absolute_error, mean_squared_error
 
 
-API_KEY = "TNU3H1OWGJZ2RO3P"   
+API_KEY = "YOUR_API_KEY"   
 STOCK_SYMBOL = "AAPL"  
 URL = f"https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol={STOCK_SYMBOL}&apikey={API_KEY}&outputsize=compact"
 
