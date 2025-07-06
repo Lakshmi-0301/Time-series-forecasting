@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # 🔹 Step 1: Fetch Data from API (Example: Alpha Vantage Stock Prices)
-API_KEY = "TNU3H1OWGJZ2RO3P"  # Replace with your actual API key
+API_KEY = "YOUR_API_KEY"  # Replace with your actual API key
 STOCK_SYMBOL = "AAPL"  # Example: Apple Stock
 URL = f"https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol={STOCK_SYMBOL}&apikey={API_KEY}&outputsize=compact"
 
